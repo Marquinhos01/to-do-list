@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>TO-DO</title>
+</head>
+<body>
+    <!--creating the structure of the principal navbar/header-->
+    <header class="header --top" id = "header-principal">
+        <nav id = "header-principal__nav">
+            <ul class = "header-principal-nav__list">
+                <li class="header-principal-nav-list__item --1">
+                    <button class="header-principal-nav-list-item__button --1" id="button-open-second-nav">
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+                    </button>
+                </li>
+                <li class="header-principal-nav-list__item --2">
+                    <h1 id = "title-principal">
+                        to - do
+                    </h1>
+                </li>
+                <li class="header-principal-nav-list__item --3">
+                    <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
+                        <span class="material-symbols-outlined">
+                            account_circle
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- dialog create list -->
+    <dialog class="create-list-window">
+        <div class="create-list-window__container dialog-container">
+            <div class="create-list-window__top-part">
+                <h3 class="create-list-window__title dialog-title">agregar actividad</h3>
+                <button id="close_list-window">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+            <div class="create-list-window__form-part">
+                <form id="create-activity-form" method="dialog">
+                    <input type="text" class="create-activity-input dialog-input" id="submit-listName" name="listName" placeholder="titulo" maxlength="37" required>
+                    <button type="submit" class="create-activity-input dialog-input">enviar</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- dialog delete list -->
+    <dialog id="delete-list-window">
+        <div class="delete-list-window__container dialog-container">
+            <div class="delete-list-window__top-part">
+                <h3 class="delete-list-advertence dialog-title">borrar: <span class="list-name-id"></span></h3>
+            </div>
+            <div class="delete-list-window__lower-part">
+                <button class="delete-list-accept dialog-input">borrar</button>
+                <button class="delete-list-rejact dialog-input">guardar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- begining of the second navbar -->
+    <div id="all-content-container">
+        <aside class="secundary-nav-container">
+            <nav id="secundary-nav">
+                <div class="secundary-nav__search-part">
+                    <label for="list-search"><span class="material-symbols-outlined">search</span></label>
+                    <input type="search" id="list-search">
+                </div>
+                <div class="secundary-nav__lists-part">
+                    <!-- <div class="list-container">
+                        <div class="list-container__parts icon">
+                            <span class="material-symbols-outlined">
+                            filter_alt
+                            </span>
+                        </div>
+                        <div class="list-container__parts title">
+                            <p><span>title</span></p>
+                            max = 33unidades
+                        </div>
+                        <div class="list-container__parts delete">
+                            <button class="delete-list">
+                                <span class="material-symbols-outlined">
+                                delete
+                                </span>
+                            </button>
+                            <button class="edit-list">
+                                <span class="material-symbols-outlined">
+                                    tune
+                                    </span>
+                            </button>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="secundary-nav__options-part">
+                    <div class="secundary-nav__options-part__container">
+                        <button class="secundary-nav__options-part__container__button --add-list" id="add-list-button">
+                            <span>agregar lista</span>
+                        </button>
+                        <!-- <button class="secundary-nav__options-part__container__button --add-group" id="add-group-button">
+                            <span>agregar grupo</span>
+                        </button> -->
+                    </div>
+                </div>
+            </nav>
+            <script src="scripts/data/create-lists.js"></script>
+        </aside>    
+        <script src="scripts/ui/width-secundary-nav.js"></script>
+        <main class="acts-container-all">
+            <section class="acts-container__filter-container">
+                <button class="add-act">agregar actividad</button>
+                <select name="acts-filter" id="acts-filter">
+                    <option value="none">ninguno</option>
+                    <option value="date">por fecha</option>
+                </select>
+            </section>
+            <section class="acts-container__acts">
+                <div class="current-acts">
+                    <div class="act">
+                        <div class="act-part chechbox">
+                            <input type="checkbox" class="act-chechbox">
+                        </div>
+                        <div class="act-part title">
+                            <span class="act-title">titulo</span>
+                        </div>
+                        <div class="act-part date">
+                            <span class="act-date">vence: 10/10/28</span>
+                        </div>
+                    </div>
+                </div>
+                <fieldset class="finished-acts__container">
+                    <legend>completadas</legend>
+                    <div class="finished-acts">
+                        <div class="act">
+                            <div class="act-part chechbox">
+                                <input type="checkbox" class="act-chechbox">
+                            </div>
+                            <div class="act-part title">
+                                <p><span class="act-title">titulo</span></p>
+                            </div>
+                            <div class="act-part date">
+                                <span class="act-date">vence: 10/10/28</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+        </main>
+    </div>
+    <script src="scripts/ui/dialogs.js"></script>
+</body>
+</html>

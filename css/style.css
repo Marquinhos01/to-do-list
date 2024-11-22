@@ -1,0 +1,366 @@
+:root{
+    --background-light: #ddd;
+    --background-dark: #333;
+    --border-dark:  #666;
+    --border-light: #eee;
+    --background-dark-color: #03045E;
+    --background-light-color: #48CAE4;
+    --border-color-light: #00B4D8;
+    --border-color-dark: #023E8A;
+    --border-raidus-slow: 2rem;
+    --title-letter-size: 2.1rem;
+    --first-letter-size: 1.6rem;
+    --letter-size: 1.2rem;
+    --letter-color-dark: #eee;
+    --letter-color-light: #333;
+    --default-margin: .7rem;
+    --default-padding: 0.3125rem;
+    --big-icon-size: 2.7rem;
+    --unique-first-title-size: 2.4rem;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'noto sans', sans-serif;
+    font-size: var(--letter-size);
+}
+
+input{
+    padding: 10px;
+    width: 200px;
+    outline: none;
+    background-color: #8881;
+    border: none;
+    border-bottom: 3.4px solid var(--border-light);
+    border-radius: var(--border-raidus-slow);
+    color: var(--letter-color-light);
+}
+
+/*Estilo que le dará al header principal*/
+
+#header-principal{
+    height: 73px;
+    width:100vw;
+    position: relative;
+    top: 0px;
+    padding:var(--default-padding);
+    background-color: var(--background-light);
+    box-sizing: border-box;
+}
+
+#header-principal__nav{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0px var(--default-padding);
+    box-sizing: border-box;
+}
+
+.header-principal-nav__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--letter-color-light);
+}
+
+.header-principal-nav-list__item{
+    list-style: none;
+}
+
+#title-principal{
+    font-size: var(--unique-first-title-size);
+    text-transform: uppercase;
+}
+
+.header-principal-nav-list__item:last-child:first-child{
+    margin: 0px var(--default-margin);
+}
+
+.header-principal-nav-list-item__button{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.header-principal-nav-list-item__button > span{
+    font-size: var(--big-icon-size);
+    color: var(--letter-color-light);
+}
+
+.header-principal-nav-list-item__button > span:hover{
+    position: relative;
+    font-size: 3.3rem;
+}
+
+/* estilo del contenido general */
+
+#all-content-container{
+    display: flex;
+    flex-flow: row nowrap;
+    height: calc(100vh - 73px);
+    width: 100vw;
+    background: var(--border-light);
+    box-sizing: border-box;
+}
+
+/* secundary nav */
+
+.secundary-nav-container{
+    display: none;
+    height: 100%;
+    background-color: var(--background-light);
+    padding: var(--default-padding);
+    box-sizing: border-box;
+    transition: min-width .2s;
+}
+
+.secundary-nav-container.active{
+    display: inline-block;
+    min-width: 400px;
+}
+
+#secundary-nav{
+    display: grid;
+    grid-template-rows: .5fr 5fr .5fr;
+    width: 100%;
+    height: 100%;
+    padding: var(--default-padding);
+    box-sizing: border-box;
+}
+
+.secundary-nav__search-part{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.secundary-nav__search-part > label > span{
+    position: relative;
+    top: 3px;
+    font-size: var(--title-letter-size);
+    cursor: pointer;
+}
+
+.secundary-nav__lists-part{
+    overflow: auto;
+}
+
+/* add/remove lists and groups */
+
+.secundary-nav__options-part__container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+}
+
+/* default setting of button */
+
+button{
+    background-color: var(--background-light-color);
+    border: 2px solid var(--border-color-light);
+    transition: border .2s, background .2s;
+    color: var(--letter-color-dark);
+    cursor: pointer;
+    transition: box-shadow .1s, background-color .2s;
+}
+
+button:active:not(#button-open-second-nav, #button-open-user-options){
+    box-shadow: 0px 0px 20px var(--border-color-light);
+}
+
+.secundary-nav__options-part__container__button{
+    padding: var(--default-padding);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+/* .secundary-nav__options-part__container__button:hover, .list-container__parts.delete >  */
+button:hover:not(#button-open-second-nav, #button-open-user-options){
+    background-color: var(--background-dark-color);
+    border: 2px solid var(--border-color-dark);
+    color: var(--letter-color-dark);
+}
+
+/* lists-containers */
+
+.list-container{
+    display: grid;
+    grid-template-columns: .2fr 1fr .3fr;
+    align-items: center;
+    padding: var(--default-padding);
+    margin-bottom: 4px;
+    background-color: #4441;
+    border-radius: var(--border-raidus-slow);
+}
+
+.list-container__parts.icon{
+    margin: auto;
+}
+
+.list-container__parts.title{
+    padding: var(--default-padding);
+    cursor: pointer;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-container__parts.title p{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* all content */
+
+.acts-container-all{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+    width: 100%;
+    padding: var(--default-padding);
+    box-sizing: border-box;
+}
+
+.acts-container-all > div{
+    width: 100%;
+}
+
+.acts-container__filter-container{
+    height: 30px;
+    padding: var(--default-padding);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.acts-container__filter-container > select{
+    position: absolute;
+    font-size: var(--letter-size);
+    right: 10px;
+    top: 12px;
+}
+
+.acts-container__filter-container > button{
+    font-size: var(--letter-size);
+}
+
+.acts-container__acts{
+    overflow: auto;
+}
+
+/* acts's style */
+
+.act{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: var(--default-padding) 15px;
+    background-color: #3332;
+    border-radius: var(--border-raidus-slow);
+    gap: 20px;
+}
+
+.act-chechbox{
+    width: auto;
+}
+
+.act-part.date{
+    font-size: .8rem;
+    color: #000;
+}
+
+/* finished acts */
+
+.finished-acts__container{
+    margin-top: 10px;
+    padding: 10px var(--default-padding);
+
+    legend{
+        padding: var(--default-padding);
+        border: 1px solid #3338;
+    }
+}
+
+/* dialog , create list */
+
+
+dialog[open]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background:none;
+    border: none;
+    z-index: 10;
+}
+
+.dialog-container{
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    position: relative;
+    margin-left: 40px;
+    width: 500px;
+    padding: 20px 0px;
+    background-color: var(--border-color-light);
+    border: 3px solid var(--background-light-color);
+    border-radius: var(--border-raidus-slow);
+}
+
+.create-list-window__container{
+    gap: 50px;
+}
+
+.dialog-title:not(.list-name-id){
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: var(--letter-color-light);
+}
+
+#close_list-window{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#create-activity-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.dialog-input{
+    font-size: var(--letter-size);
+}
+
+#create-activity-form button.create-activity-input{
+    padding: 0px 100px;
+}
+
+/* dialog delete list */
+
+.delete-list-accept, .delete-list-rejact{
+    padding-inline: 12px 16px;
+}
