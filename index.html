@@ -123,6 +123,28 @@
         </aside>    
         <script src="scripts/ui/width-secundary-nav.js"></script>
         <main class="acts-container-all">
+            <dialog id="create-act-window">
+                <div class="create-act dialog-container">
+                    <div class="create-act__title-container">
+                        <h3 class="dialog-title">crear actividad</h3>
+                    </div>
+                    <div class="create-act__lower-part">
+                        <form class="create-act__form-data">
+                            <div class="create-act__input-name create-act__input-zone">
+                                <label for="act-name">nombre</label>
+                                <input type="text" id="act-name" name="name">
+                            </div>
+                            <div class="create-act__input-date create-act__input-zone">
+                                <label for="date-off">fecha</label>
+                                <input type="date" id="date-off" name="date">
+                            </div>
+                            <div class="create-act__input-submit">
+                                <button type="submit" class="submit-act-created">mandar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
             <section class="acts-container__filter-container">
                 <button class="add-act">agregar actividad</button>
                 <select name="acts-filter" id="acts-filter">
@@ -132,7 +154,7 @@
             </section>
             <section class="acts-container__acts">
                 <div class="current-acts">
-                    <div class="act">
+                    <!-- <div class="act">
                         <div class="act-part chechbox">
                             <input type="checkbox" class="act-chechbox">
                         </div>
@@ -142,12 +164,12 @@
                         <div class="act-part date">
                             <span class="act-date">vence: 10/10/28</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <fieldset class="finished-acts__container">
                     <legend>completadas</legend>
                     <div class="finished-acts">
-                        <div class="act">
+                        <!-- <div class="act">
                             <div class="act-part chechbox">
                                 <input type="checkbox" class="act-chechbox">
                             </div>
@@ -157,12 +179,13 @@
                             <div class="act-part date">
                                 <span class="act-date">vence: 10/10/28</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </fieldset>
             </section>
         </main>
     </div>
+    <script src="scripts/data/create-acts.js"></script>
     <script src="scripts/ui/dialogs.js"></script>
 </body>
 </html>
