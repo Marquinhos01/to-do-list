@@ -271,6 +271,7 @@ button:hover:not(#button-open-second-nav, #button-open-user-options){
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    margin: var(--default-margin) 0px;
     padding: var(--default-padding) 15px;
     background-color: #3332;
     border-radius: var(--border-raidus-slow);
@@ -363,4 +364,26 @@ dialog[open]{
 
 .delete-list-accept, .delete-list-rejact{
     padding-inline: 12px 16px;
+}
+
+#create-act-window form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .create-act__input-submit button{
+        padding: var(--default-padding);
+        margin: auto;
+        margin-top: 1rem;
+        font-size: var(--letter-size);
+    }
+
+    .create-act__input-zone{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
 }
