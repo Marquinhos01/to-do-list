@@ -10,17 +10,39 @@ function assignDeleteListEvent(button) {
 }
 
 function assignSelectListActs(list) {
+    // console.log("evento agregado");
+    var listNameN = list.className.split(" ")
     list.addEventListener("click", () => {
-        var a = list["acts"];
-        ReLoadActs(a);
+        for (let i = 0; i < allLists.length; i++) {
+            if(listNameN[3] == allLists[i]["listName"]){
+                // console.log(listNameN[3])
+                allActs = allLists[i]["acts"];
+                if(allActs[0] == i){
+                    ReLoadActs();
+                    // console.log("mostrando actividades...");
+                    break
+                } else{
+                    allActs.unshift(i)
+                    ReLoadActs();
+                    // console.log("mostrando actividades...");
+                    break
+                }
+            } else{
+                // console.error("no se encontro la lista");
+                continue};
+        }
     })
 }
 
 function refreshDeleteEvents() {
     buttonOpenDeleteList = document.querySelectorAll('.delete-list');
     buttonOpenDeleteList.forEach(button => assignDeleteListEvent(button));
+    
+    listsOptions = document.querySelectorAll(".select-list");
     listsOptions.forEach(list => assignSelectListActs(list));
 }
+
+refreshDeleteEvents();
 
 const ListStructure =  (n) => {
     return `
@@ -30,7 +52,7 @@ const ListStructure =  (n) => {
                             filter_alt
                             </span>
                         </div>
-                        <div class="list-container__parts title">
+                        <div class="list-container__parts title select-list ${n}">
                             <p><span>${n}<span></p>
                             <!-- max = 33unidades -->
                         </div>

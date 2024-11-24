@@ -35,7 +35,9 @@ class CreateActivity {
     }
 }
 
+refreshDeleteEvents();
 
+var allActs = [];
 const addAct = document.querySelector(".add-act");
 const createAct = document.getElementById("create-act-window");
 const formDataCA = document.querySelector(".create-act__form-data");
@@ -43,14 +45,22 @@ const finishedSpace = document.querySelector(".finished-acts");
 const currentSpace = document.querySelector(".current-acts");
 const dateOff =  document.getElementById("date-off");
 const actName = document.getElementById("act-name");
-const listsOptions = document.querySelectorAll(".list-container");
+var listsOptions = document.querySelectorAll(".select-list");
 
 
-function ReLoadActs(actualListSelect){
+function ReLoadActs(){
     finishedSpace.innerHTML = "";
     currentSpace.innerHTML = "";
-    for (let i = 0; i < actualListSelect.length; i++) {
-        allActs[i]["acts"].Create(i);
+    if (allActs.length > 1){
+        // for (let i = 1; i < allActs.length; i++) {
+        // allActs[i] = new CreateActivity(allActs[i]["name"], allActs[i]["date"]);
+        // allActs[i].Create(i);
+        // }
+        let f = allActs.map((e) => new CreateActivity(e.name, e.date))
+        for (let i = 1; i < f.length; i++) {
+            // f[i].Create(i.name, i.date)
+            f[i].Create(i)
+        }
     }
 }
 
@@ -70,12 +80,22 @@ formDataCA.addEventListener("submit", (e) => {
 
     let actividad = new CreateActivity(a["name"], a["date"]);
 
-    a.unshift(actividad);
+    let f = allActs.slice(0, 1);
+
+    allActs.shift();
+
+    allActs.unshift(actividad);
+
+    allActs.unshift(f);
+
+    allLists[(allActs[0])]["acts"] = allActs;
+
+    localStorage.setItem('lists', (JSON.stringify(allLists)));
 
     createAct.close();
 
     dateOff.value = "";
     actName.value = "";
     
-    ReLoadActs(a);
+    ReLoadActs();
 })
