@@ -9,9 +9,17 @@ function assignDeleteListEvent(button) {
     });
 }
 
+function assignSelectListActs(list) {
+    list.addEventListener("click", () => {
+        var a = list["acts"];
+        ReLoadActs(a);
+    })
+}
+
 function refreshDeleteEvents() {
     buttonOpenDeleteList = document.querySelectorAll('.delete-list');
     buttonOpenDeleteList.forEach(button => assignDeleteListEvent(button));
+    listsOptions.forEach(list => assignSelectListActs(list));
 }
 
 const ListStructure =  (n) => {

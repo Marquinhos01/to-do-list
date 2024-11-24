@@ -26,17 +26,8 @@ class CreateActivity {
         }
     }
 
-    Delete(id){
-        for (let i = 0; i < allActs.length; i++) {
-            if(id == allActs[i]){
-                allActs.splice(i, 1);
-
-            }
-        }
-    }
-
-    set state(state){
-        if(this.state){
+    ChangeState(){
+        if(this.finished){
             this.finished = false;
         } else {
             this.finished = true;
@@ -45,7 +36,6 @@ class CreateActivity {
 }
 
 
-const allActs = [];
 const addAct = document.querySelector(".add-act");
 const createAct = document.getElementById("create-act-window");
 const formDataCA = document.querySelector(".create-act__form-data");
@@ -53,19 +43,16 @@ const finishedSpace = document.querySelector(".finished-acts");
 const currentSpace = document.querySelector(".current-acts");
 const dateOff =  document.getElementById("date-off");
 const actName = document.getElementById("act-name");
+const listsOptions = document.querySelectorAll(".list-container");
 
 
-function ReLoadActs(){
+function ReLoadActs(actualListSelect){
     finishedSpace.innerHTML = "";
     currentSpace.innerHTML = "";
-    for (let i = 0; i < allActs.length; i++) {
-        allActs[i].Create(i);
+    for (let i = 0; i < actualListSelect.length; i++) {
+        allActs[i]["acts"].Create(i);
     }
 }
-
-ReLoadActs();
-
-
 
 addAct.addEventListener("click", () => {
     createAct.showModal();
@@ -83,12 +70,12 @@ formDataCA.addEventListener("submit", (e) => {
 
     let actividad = new CreateActivity(a["name"], a["date"]);
 
-    allActs.unshift(actividad);
+    a.unshift(actividad);
 
     createAct.close();
 
     dateOff.value = "";
     actName.value = "";
     
-    ReLoadActs();
+    ReLoadActs(a);
 })
