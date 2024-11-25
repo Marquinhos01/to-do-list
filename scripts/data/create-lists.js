@@ -82,6 +82,8 @@ for(i of allLists){
     CreateList(name);
 }
 
+// create list
+
 formList.addEventListener('submit', (event) => {
     event.preventDefault();
     let formContent = new FormData(formList);
