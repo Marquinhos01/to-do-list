@@ -58,7 +58,6 @@ function ReLoadActs(){
         // }
         let f = allActs.map((e) => new CreateActivity(e.name, e.date))
         for (let i = 1; i < f.length; i++) {
-            // f[i].Create(i.name, i.date)
             f[i].Create(i)
         }
     }
@@ -86,7 +85,7 @@ formDataCA.addEventListener("submit", (e) => {
 
     allActs.unshift(actividad);
 
-    allActs.unshift(f);
+    allActs.unshift(f[0]);
 
     allLists[(allActs[0])]["acts"] = allActs;
 
