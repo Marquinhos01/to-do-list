@@ -40,6 +40,11 @@ input{
     color: var(--letter-color-light);
 }
 
+select{
+    padding: var(--default-padding);
+    font-size: var(--title-letter-size);
+}
+
 /*Estilo que le dará al header principal*/
 
 #header-principal{
@@ -107,6 +112,7 @@ input{
 #all-content-container{
     display: flex;
     flex-flow: row nowrap;
+    position: relative;
     height: calc(100vh - 73px);
     width: 100vw;
     background: var(--border-light);
@@ -174,10 +180,10 @@ input{
 button{
     background-color: var(--background-light-color);
     border: 2px solid var(--border-color-light);
-    transition: border .2s, background .2s;
     color: var(--letter-color-dark);
     cursor: pointer;
-    transition: box-shadow .1s, background-color .2s;
+    padding: var(--default-padding);
+    transition: box-shadow .1s, background-color .2s, border .2s, background .2s;
 }
 
 button:active:not(#button-open-second-nav, #button-open-user-options){
@@ -360,7 +366,7 @@ dialog[open]{
     padding: 0px 100px;
 }
 
-/* dialog delete list */
+/* dialog delete list y crete act */
 
 .delete-list-accept, .delete-list-rejact{
     padding-inline: 12px 16px;
@@ -387,3 +393,25 @@ dialog[open]{
         gap: 1rem;
     }
 }
+
+.create-act__input-zone label{
+    text-transform: uppercase;
+}
+
+.create-act__input-zone label::after{
+    content: " =>";
+    color: #000;
+}
+
+.create-act__input-zone label:hover{
+    text-decoration: underline var(--border-color-dark) 1.2px;
+}
+
+.select-list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+/* mensaje de elegir lista */

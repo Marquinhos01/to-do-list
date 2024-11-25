@@ -10,21 +10,22 @@ function assignDeleteListEvent(button) {
 }
 
 function assignSelectListActs(list) {
-    // console.log("evento agregado");
+    console.log("evento agregado");
     var listNameN = list.className.split(" ")
     list.addEventListener("click", () => {
         for (let i = 0; i < allLists.length; i++) {
             if(listNameN[3] == allLists[i]["listName"]){
-                // console.log(listNameN[3])
+                console.log(listNameN[3])
                 allActs = allLists[i]["acts"];
+                console.log(allActs[0])
                 if(allActs[0] == i){
                     ReLoadActs();
-                    // console.log("mostrando actividades...");
+                    console.log("mostrando actividades...");
                     break
                 } else{
                     allActs.unshift(i)
                     ReLoadActs();
-                    // console.log("mostrando actividades...");
+                    console.log("mostrando actividades...");
                     break
                 }
             } else{
