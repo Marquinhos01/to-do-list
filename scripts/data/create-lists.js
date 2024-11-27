@@ -8,7 +8,7 @@ function assignDeleteListEvent(button) {
         listNameId.innerText = button.name;
     });
 }
-
+// * This function assign for each list an event --> Show his acts 
 function assignSelectListActs(list) {
     console.log("evento agregado");
     var listNameN = list.className.split(" ")
@@ -34,7 +34,7 @@ function assignSelectListActs(list) {
         }
     })
 }
-
+// * Reune las dos funciones para asignar eventos (deletelist, listoptions)
 function refreshDeleteEvents() {
     buttonOpenDeleteList = document.querySelectorAll('.delete-list');
     buttonOpenDeleteList.forEach(button => assignDeleteListEvent(button));
@@ -76,13 +76,13 @@ const ListStructure =  (n) => {
 function CreateList(name) {
     listContent.insertAdjacentHTML('beforeend',ListStructure(name))
 };
-
+// * It creates the list store in the local storage
 for(i of allLists){
     let name = i.listName;
     CreateList(name);
 }
 
-// create list
+//* create list
 
 formList.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -108,7 +108,7 @@ formList.addEventListener('submit', (event) => {
 })
 
 
-// searsh list
+//* searsh list
 
 const searchContent = document.getElementById('list-search');
 
@@ -117,7 +117,7 @@ searchContent.addEventListener('keyup', () => {
     listContent.innerHTML = ""; 
 
     for (let i = 0; i < allLists.length; i++){
-        if((allLists[i].listName).includes(v)){
+        if((allLists[i].listName).includes(v)){ //? <-- Find the list?
             CreateList(allLists[i].listName)
         }else{
             continue
