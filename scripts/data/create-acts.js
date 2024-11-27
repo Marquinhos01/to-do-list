@@ -35,7 +35,7 @@ class CreateActivity {
         }
     }
 }
-// ! if you don't call the function the acts won't able show. 
+// ! if you don't call the function the acts won't be able to show. 
 refreshDeleteEvents();
 
 var allActs = [];

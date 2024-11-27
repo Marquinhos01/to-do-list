@@ -1,5 +1,4 @@
-// open dialog, create list
-
+// * --> open dialog, create list
 let buttonClose = document.getElementById('close_list-window');
 let dialog = document.querySelector('.create-list-window');
 let buttonOpen= document.getElementById('add-list-button');
@@ -17,9 +16,7 @@ buttonClose.addEventListener('click', () => {
     dialog.close();
 });
 
-// delete list
-
-
+//* delete list
 buttonKeepList.addEventListener('click', () => {
     dialogDeleteList.close();
 });
