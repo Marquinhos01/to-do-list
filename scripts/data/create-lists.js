@@ -8,24 +8,25 @@ function assignDeleteListEvent(button) {
         listNameId.innerText = button.name;
     });
 }
-
+// * This function assign for each list an event --> Show his acts 
 function assignSelectListActs(list) {
-    console.log("evento agregado");
-    var listNameN = list.className.split(" ")
+    // console.log("evento agregado");
+    var listNameN = list.className.split(" ") // ? <-- separa las clases para luego seleccionar solo la que necesita (la última)
     list.addEventListener("click", () => {
         for (let i = 0; i < allLists.length; i++) {
             if(listNameN[3] == allLists[i]["listName"]){
-                console.log(listNameN[3])
+                // console.log(listNameN[3])
                 allActs = allLists[i]["acts"];
-                console.log(allActs[0])
+                // console.log(allActs[0])
                 if(allActs[0] == i){
                     ReLoadActs();
-                    console.log("mostrando actividades...");
+                    // console.log("mostrando actividades...");
                     break
                 } else{
+                    allActs.shift();
                     allActs.unshift(i)
                     ReLoadActs();
-                    console.log("mostrando actividades...");
+                    // console.log("mostrando actividades...");
                     break
                 }
             } else{
@@ -34,7 +35,7 @@ function assignSelectListActs(list) {
         }
     })
 }
-
+// * Reune las dos funciones para asignar eventos (deletelist, listoptions)
 function refreshDeleteEvents() {
     buttonOpenDeleteList = document.querySelectorAll('.delete-list');
     buttonOpenDeleteList.forEach(button => assignDeleteListEvent(button));
@@ -76,11 +77,13 @@ const ListStructure =  (n) => {
 function CreateList(name) {
     listContent.insertAdjacentHTML('beforeend',ListStructure(name))
 };
-
+// * It creates the list store in the local storage
 for(i of allLists){
     let name = i.listName;
     CreateList(name);
 }
+
+//* create list
 
 formList.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -106,7 +109,7 @@ formList.addEventListener('submit', (event) => {
 })
 
 
-// searsh list
+//* searsh list
 
 const searchContent = document.getElementById('list-search');
 
@@ -115,7 +118,7 @@ searchContent.addEventListener('keyup', () => {
     listContent.innerHTML = ""; 
 
     for (let i = 0; i < allLists.length; i++){
-        if((allLists[i].listName).includes(v)){
+        if((allLists[i].listName).includes(v)){ //? <-- Find the list?
             CreateList(allLists[i].listName)
         }else{
             continue

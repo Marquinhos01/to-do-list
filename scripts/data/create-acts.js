@@ -1,3 +1,4 @@
+//* This class build an activity with his own functions inside, just they can use these fucntions.
 class CreateActivity {
     constructor(name, date) {
         this.name = name;
@@ -34,7 +35,7 @@ class CreateActivity {
         }
     }
 }
-
+// ! if you don't call the function the acts won't be able to show. 
 refreshDeleteEvents();
 
 var allActs = [];
@@ -51,22 +52,22 @@ var listsOptions = document.querySelectorAll(".select-list");
 function ReLoadActs(){
     finishedSpace.innerHTML = "";
     currentSpace.innerHTML = "";
-    if (allActs.length > 1){
+    if (allActs.length > 1){ //? are activities inside  ? 
         // for (let i = 1; i < allActs.length; i++) {
         // allActs[i] = new CreateActivity(allActs[i]["name"], allActs[i]["date"]);
         // allActs[i].Create(i);
         // }
-        let f = allActs.map((e) => new CreateActivity(e.name, e.date))
+        let f = allActs.map((e) => new CreateActivity(e.name, e.date)) //* <-- Assign the class for each activity.
         for (let i = 1; i < f.length; i++) {
             f[i].Create(i)
         }
     }
 }
-
+//* Show the addAct-modal
 addAct.addEventListener("click", () => {
     createAct.showModal();
 })
-
+//* add the act to the list
 formDataCA.addEventListener("submit", (e) => {
     e.preventDefault();
     var a = {};
@@ -79,7 +80,7 @@ formDataCA.addEventListener("submit", (e) => {
 
     let actividad = new CreateActivity(a["name"], a["date"]);
 
-    let f = allActs.slice(0, 1);
+    let f = allActs.slice(0, 1); //! <-- take the value for add it after. It keep the id first. 
 
     allActs.shift();
 
@@ -89,12 +90,12 @@ formDataCA.addEventListener("submit", (e) => {
 
     allLists[(allActs[0])]["acts"] = allActs;
 
-    localStorage.setItem('lists', (JSON.stringify(allLists)));
+    localStorage.setItem('lists', (JSON.stringify(allLists))); //* <-- Store in the localStorage.
 
     createAct.close();
 
     dateOff.value = "";
     actName.value = "";
     
-    ReLoadActs();
+    ReLoadActs(); //* <-- It show again all the acts. 
 })
