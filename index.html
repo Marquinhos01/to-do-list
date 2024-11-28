@@ -46,7 +46,7 @@
     <dialog class="create-list-window">
         <div class="create-list-window__container dialog-container">
             <div class="create-list-window__top-part">
-                <h3 class="create-list-window__title dialog-title">agregar actividad</h3>
+                <h3 class="create-list-window__title dialog-title">agregar lista</h3>
                 <button id="close_list-window">
                     <span class="material-symbols-outlined">
                         close
@@ -121,7 +121,6 @@
             </nav>
             <script src="scripts/data/create-lists.js"></script>
         </aside>    
-        <script src="scripts/ui/width-secundary-nav.js"></script>
         <main class="acts-container-all">
             <dialog id="create-act-window">
                 <div class="create-act dialog-container">
@@ -155,7 +154,10 @@
             <section class="acts-container__acts">
                 <div class="current-acts">
                     <div class="mensage-before-choose-list">
-                        <p>debes elegir una lista previo a agregar una actividad</p>
+                        <div>
+                            <h6>error</h6>
+                            <p>debes elegir una lista previo a agregar una actividad: <button class="temporal-add-list-in-main">agregar lista</button></p>
+                        </div>
                     </div>
                     <!-- <div class="act">
                         <div class="act-part chechbox">
@@ -188,6 +190,7 @@
             </section>
         </main>
     </div>
+    <script src="scripts/ui/width-secundary-nav.js"></script>
     <script src="scripts/data/create-acts.js"></script>
     <script src="scripts/ui/dialogs.js"></script>
 </body>

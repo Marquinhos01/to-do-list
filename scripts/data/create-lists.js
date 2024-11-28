@@ -1,6 +1,7 @@
 let allLists =  JSON.parse(localStorage.getItem('lists')) || [];
 let formList = document.getElementById('create-activity-form');
 let listContent = document.querySelector('.secundary-nav__lists-part');
+var pageWidth = window.innerWidth; //* <-- Page's widht
 
 function assignDeleteListEvent(button) {
     button.addEventListener('click', () => {
@@ -20,12 +21,20 @@ function assignSelectListActs(list) {
                 // console.log(allActs[0])
                 if(allActs[0] == i){
                     ReLoadActs();
+                    pageWidth = window.innerWidth;
+                    if(pageWidth <= 1160){
+                        secondNav.classList.remove("active");
+                    }
                     // console.log("mostrando actividades...");
                     break
                 } else{
                     allActs.shift();
                     allActs.unshift(i)
                     ReLoadActs();
+                    pageWidth = window.innerWidth;
+                    if(pageWidth <= 1160){
+                        secondNav.classList.remove("active");
+                    }
                     // console.log("mostrando actividades...");
                     break
                 }
@@ -131,4 +140,3 @@ searchContent.addEventListener('keyup', () => {
     }
     refreshDeleteEvents();
 });
-
