@@ -415,15 +415,50 @@ dialog[open]{
 }
 
 /* mensaje de elegir lista */
+.mensage-before-choose-list{
+    display: block;
+    min-height: 30px;
+    background-color: #e66;
+    border: 2px solid #e44;
+    border-radius: var(--border-raidus-slow);
+    padding: 1rem;
+    margin: var(--default-margin);
+    height: 100px;
+    text-transform: uppercase;
+    color: var(--letter-color-dark);
+
+    div{
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+
+        h6{
+            display: inline-block;
+            font-size: var(--title-letter-size);
+        }
+
+        p{
+            font-size: 1.4rem;
+        }
+    }
+}
+
 
 @media only screen and (max-width: 1160px) {
     .secundary-nav-container.active{
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 100vw;
+        min-width: 100vw;
         height: 100vh - 73px;
+        padding: 0px;
         z-index: 20;
         box-sizing: border-box;
+    }
+
+    #secundary-nav{
+        grid-template-columns: 100vw;
+        padding: 0px;
+        
     }
 }
