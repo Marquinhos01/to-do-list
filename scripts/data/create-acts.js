@@ -1,16 +1,16 @@
 //* This class build an activity with his own functions inside, just they can use these fucntions.
 class CreateActivity {
-    constructor(name, date) {
+    constructor(name, date, finished) {
         this.name = name;
         this.date = date;
-        this.finished = false;
+        this.finished = finished;
     }
 
     Create(id){
         let a = `
-        <div class="act" name="act-${id}">
+        <div class="act ${id}">
             <div class="act-part chechbox">
-                <input type="checkbox" class="act-chechbox">
+                <input type="checkbox" class="act-chechbox ${id}">
             </div>
             <div class="act-part title">
                 <span class="act-title">${this.name}</span>
@@ -44,10 +44,12 @@ const createAct = document.getElementById("create-act-window");
 const formDataCA = document.querySelector(".create-act__form-data");
 const finishedSpace = document.querySelector(".finished-acts");
 const currentSpace = document.querySelector(".current-acts");
+const completeCurrentSpace = document.querySelector(".finished-acts");
 const dateOff =  document.getElementById("date-off");
 const actName = document.getElementById("act-name");
 const actsFilterByDate = document.getElementById("acts-filter");
 var listsOptions = document.querySelectorAll(".select-list");
+var checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
 
 
 function ReLoadActs(){
@@ -58,11 +60,25 @@ function ReLoadActs(){
         // allActs[i] = new CreateActivity(allActs[i]["name"], allActs[i]["date"]);
         // allActs[i].Create(i);
         // }
-        let f = allActs.map((e) => new CreateActivity(e.name, e.date)) //* <-- Assign the class for each activity.
-        for (let i = 1; i < f.length; i++) {
-            f[i].Create(i)
+        let f = allActs.map((e) => new CreateActivity(e.name, e.date, e.finished)) //* <-- Assign the class for each activity.
+        // console.log(f);
+        let g = allActs.slice(0, 1)
+        // console.log(allActs);
+        
+        allActs.splice(0, allActs.length)
+        // console.log(allActs);
+        allActs = f.slice(1, f.length);
+        allActs.unshift(g[0]);
+        // console.log(allActs);
+
+        for (let i = 1; i < allActs.length; i++) {
+            allActs[i].Create(i);
         }
     }
+    checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+    checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
+    allLists[(allActs[0])]["acts"] = allActs;
+    localStorage.setItem('lists', (JSON.stringify(allLists)));
 }
 
 //* Show the addAct-modal
@@ -81,7 +97,9 @@ formDataCA.addEventListener("submit", (e) => {
         a[key] = value; 
     });
 
-    let actividad = new CreateActivity(a["name"], a["date"]);
+    a["finished"] = false; 
+
+    let actividad = new CreateActivity(a["name"], a["date"], a["finished"]);
 
     let f = allActs.slice(0, 1); //! <-- take the value for add it after. It keep the id first. 
 
@@ -91,9 +109,9 @@ formDataCA.addEventListener("submit", (e) => {
 
     allActs.unshift(f[0]);
 
-    allLists[(allActs[0])]["acts"] = allActs;
+    // allLists[(allActs[0])]["acts"] = allActs;
 
-    localStorage.setItem('lists', (JSON.stringify(allLists))); //* <-- Store in the localStorage.
+    //localStorage.setItem('lists', (JSON.stringify(allLists))); //* <-- Store in the localStorage.
 
     createAct.close();
 

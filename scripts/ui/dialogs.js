@@ -33,7 +33,7 @@ buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
 // * evento que elimina la lista 
 buttonDeleteList.addEventListener('click', () => {
     let a = parseInt(listNameId.textContent);
-    console.log(a);
+    // console.log(a);
     
     allLists.splice(a, 1);
     localStorage.setItem('lists', (JSON.stringify(allLists)));
@@ -43,6 +43,6 @@ buttonDeleteList.addEventListener('click', () => {
         const element = allLists[i];
         CreateList(i, element.listName)
     }
-    console.log(parseInt(listNameId.textContent));
+    // console.log(parseInt(listNameId.textContent));
     refreshDeleteEvents();
 });
