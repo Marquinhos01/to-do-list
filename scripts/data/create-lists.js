@@ -14,7 +14,7 @@ function assignSelectListActs(list) {
     var listNameN = list.className.split(" ") // ? <-- separa las clases para luego seleccionar solo la que necesita (la última)
     list.addEventListener("click", () => {
         for (let i = 0; i < allLists.length; i++) {
-            if(listNameN[3] == allLists[i]["listName"]){
+            if(listNameN[3] == i){
                 // console.log(listNameN[3])
                 allActs = allLists[i]["acts"];
                 // console.log(allActs[0])
@@ -46,25 +46,25 @@ function refreshDeleteEvents() {
 
 refreshDeleteEvents();
 
-const ListStructure =  (n) => {
+const ListStructure =  (id, name) => {
     return `
-                    <div class="list-container" name="${n}">
+                    <div class="list-container" name="${id}">
                         <div class="list-container__parts icon">
                             <span class="material-symbols-outlined">
                             filter_alt
                             </span>
                         </div>
-                        <div class="list-container__parts title select-list ${n}">
-                            <p><span>${n}<span></p>
+                        <div class="list-container__parts title select-list ${id}">
+                            <p><span>${name}<span></p>
                             <!-- max = 33unidades -->
                         </div>
                         <div class="list-container__parts delete">
-                            <button class="delete-list" name="${n}">
+                            <button class="delete-list" name="${id}">
                                 <span class="material-symbols-outlined">
                                 delete
                                 </span>
                             </button>
-                            <button class="edit-list" name="${n}">
+                            <button class="edit-list" name="${id}">
                                 <span class="material-symbols-outlined">
                                     tune
                                     </span>
@@ -74,13 +74,13 @@ const ListStructure =  (n) => {
 `
 }
 
-function CreateList(name) {
-    listContent.insertAdjacentHTML('beforeend',ListStructure(name))
+function CreateList(id, name) {
+    listContent.insertAdjacentHTML('beforeend',ListStructure(id, name))
 };
 // * It creates the list store in the local storage
-for(i of allLists){
-    let name = i.listName;
-    CreateList(name);
+for (let i = 0; i < allLists.length; i++) {
+    const element = allLists[i];
+    CreateList(i, element.listName)
 }
 
 //* create list
@@ -93,10 +93,15 @@ formList.addEventListener('submit', (event) => {
     };
     formContent.forEach((value,key)=>{
             list[key] = value;
-            CreateList(value);
     })
 
     allLists.unshift(list);
+
+    listContent.innerHTML = "";
+    for (let i = 0; i < allLists.length; i++) {
+        const element = allLists[i];
+        CreateList(i, element.listName)
+    }
 
     localStorage.setItem('lists', (JSON.stringify(allLists)));
 
@@ -119,7 +124,7 @@ searchContent.addEventListener('keyup', () => {
 
     for (let i = 0; i < allLists.length; i++){
         if((allLists[i].listName).includes(v)){ //? <-- Find the list?
-            CreateList(allLists[i].listName)
+            CreateList(i, allLists[i].listName)
         }else{
             continue
         }
