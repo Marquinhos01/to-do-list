@@ -415,3 +415,15 @@ dialog[open]{
 }
 
 /* mensaje de elegir lista */
+
+@media only screen and (max-width: 1160px) {
+    .secundary-nav-container.active{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh - 73px;
+        z-index: 20;
+        box-sizing: border-box;
+    }
+}
