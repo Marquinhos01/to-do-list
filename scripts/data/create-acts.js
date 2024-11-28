@@ -35,7 +35,7 @@ class CreateActivity {
         }
     }
 }
-// ! if you don't call the function the acts won't be able to show. 
+// ! if you don't call the function the acts won't be able to show.
 refreshDeleteEvents();
 
 var allActs = [];
@@ -46,6 +46,7 @@ const finishedSpace = document.querySelector(".finished-acts");
 const currentSpace = document.querySelector(".current-acts");
 const dateOff =  document.getElementById("date-off");
 const actName = document.getElementById("act-name");
+const actsFilterByDate = document.getElementById("acts-filter");
 var listsOptions = document.querySelectorAll(".select-list");
 
 
@@ -63,10 +64,12 @@ function ReLoadActs(){
         }
     }
 }
+
 //* Show the addAct-modal
 addAct.addEventListener("click", () => {
     createAct.showModal();
 })
+
 //* add the act to the list
 formDataCA.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -98,4 +101,12 @@ formDataCA.addEventListener("submit", (e) => {
     actName.value = "";
     
     ReLoadActs(); //* <-- It show again all the acts. 
+});
+
+// * filtro de actividades --> por fecha
+
+actsFilterByDate.addEventListener("change", () => {
+    if(actsFilterByDate.value == "date"){
+        
+    }
 })

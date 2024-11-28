@@ -21,7 +21,7 @@ buttonKeepList.addEventListener('click', () => {
     dialogDeleteList.close();
 });
 
-
+// * Agrega el evento que muestra el modal para eliminar una actividad
 buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
     dialogDeleteList.showModal();
     listNameId.innerText = a.name;
@@ -30,6 +30,7 @@ buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
     })
 });
 
+// * evento que elimina la lista 
 buttonDeleteList.addEventListener('click', () => {
     let a = parseInt(listNameId.textContent);
     console.log(a);
