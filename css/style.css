@@ -416,6 +416,7 @@ dialog[open]{
     height: 100%;
 }
 
+
 /* -> mensaje de elegir lista <- */
 
 /* !  message that say to the user "choose one list" */
@@ -446,6 +447,7 @@ dialog[open]{
         }
     }
 }
+
 
 @media only screen and (max-width: 1160px) {
     .secundary-nav-container.active{
