@@ -9,6 +9,21 @@ function assignDeleteListEvent(button) {
         listNameId.innerText = button.name;
     });
 }
+
+// * Assign the complete option to the acts
+function AssignEventOfCompleteAct(checkbox) {
+    var checkboxActId = checkbox.className.split(" ");
+    checkbox.addEventListener("change", () => {
+        for (let i = 0; i < allActs.length; i++) {
+            if(i == checkboxActId[1]){
+                allActs[i].ChangeState();
+            }
+        }
+        ReLoadActs();
+    })
+}
+
+
 // * This function assign for each list an event --> Show his acts 
 function assignSelectListActs(list) {
     // console.log("evento agregado");
@@ -51,6 +66,9 @@ function refreshDeleteEvents() {
     
     listsOptions = document.querySelectorAll(".select-list");
     listsOptions.forEach(list => assignSelectListActs(list));
+
+    checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+    checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
 }
 
 refreshDeleteEvents();
@@ -139,4 +157,5 @@ searchContent.addEventListener('keyup', () => {
         }
     }
     refreshDeleteEvents();
+    ReLoadActs();
 });
