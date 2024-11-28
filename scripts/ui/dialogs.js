@@ -25,26 +25,23 @@ buttonKeepList.addEventListener('click', () => {
 buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
     dialogDeleteList.showModal();
     listNameId.innerText = a.name;
-    // console.log('d')
+    console.log(a.name);
+    refreshDeleteEvents()
     })
-    buttonDeleteList.addEventListener('click', () => {
-        for(let i = 0; i < allLists.length; i++){
-            if(allLists[i].listName == listNameId.textContent){
-                allLists.splice(i, 1);
-                localStorage.setItem('lists', (JSON.stringify(allLists)));
-                dialogDeleteList.close();
-                listContent.innerHTML = ""; 
-                for(i of allLists){
-                    let name = i.listName;
-                    CreateList(name);
-                }
-                refreshDeleteEvents();
-                // location.reload();
-                break
-            } else{
-                continue
-            }
-        }
-    });
 });
 
+buttonDeleteList.addEventListener('click', () => {
+    let a = parseInt(listNameId.textContent);
+    console.log(a);
+    
+    allLists.splice(a, 1);
+    localStorage.setItem('lists', (JSON.stringify(allLists)));
+    dialogDeleteList.close();
+    listContent.innerHTML = "";
+    for (let i = 0; i < allLists.length; i++) {
+        const element = allLists[i];
+        CreateList(i, element.listName)
+    }
+    console.log(parseInt(listNameId.textContent));
+    refreshDeleteEvents();
+});
