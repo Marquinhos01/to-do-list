@@ -26,21 +26,17 @@ function AssignEventOfCompleteAct(checkbox) {
 
 // * This function assign for each list an event --> Show his acts 
 function assignSelectListActs(list) {
-    // console.log("evento agregado");
     var listNameN = list.className.split(" ") // ? <-- separa las clases para luego seleccionar solo la que necesita (la última)
     list.addEventListener("click", () => {
         for (let i = 0; i < allLists.length; i++) {
             if(listNameN[3] == i){
-                // console.log(listNameN[3])
                 allActs = allLists[i]["acts"];
-                // console.log(allActs[0])
                 if(allActs[0] == i){
                     ReLoadActs();
                     pageWidth = window.innerWidth;
                     if(pageWidth <= 1160){
                         secondNav.classList.remove("active");
                     }
-                    // console.log("mostrando actividades...");
                     break
                 } else{
                     allActs.shift();
@@ -50,11 +46,9 @@ function assignSelectListActs(list) {
                     if(pageWidth <= 1160){
                         secondNav.classList.remove("active");
                     }
-                    // console.log("mostrando actividades...");
                     break
                 }
             } else{
-                // console.error("no se encontro la lista");
                 continue};
         }
     })
