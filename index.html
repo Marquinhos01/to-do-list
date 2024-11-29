@@ -32,12 +32,13 @@
                         to - do
                     </h1>
                 </li>
+                <!-- ! no se creo el apartado de configuraciones. No se va a mostrar el elemento hasta ese momento. Se mantiene el <li> para no romper la estructura (estilo) -->
                 <li class="header-principal-nav-list__item --3">
-                    <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
+                    <!-- <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
                         <span class="material-symbols-outlined">
                             account_circle
                         </span>
-                    </button>
+                    </button> -->
                 </li>
             </ul>
         </nav>
@@ -147,7 +148,7 @@
             <section class="acts-container__filter-container">
                 <button class="add-act">agregar actividad</button>
                 <select name="acts-filter" id="acts-filter">
-                    <option value="none">ninguno</option>
+                    <option value="none">orden de creacion</option>
                     <option value="date">por fecha</option>
                 </select>
             </section>
@@ -191,7 +192,7 @@
         </main>
     </div>
     <script src="scripts/ui/width-secundary-nav.js"></script>
-    <script src="scripts/data/create-acts.js"></script>
+    <script src="scripts/data/acts.js"></script>
     <script src="scripts/ui/dialogs.js"></script>
 </body>
 </html>
