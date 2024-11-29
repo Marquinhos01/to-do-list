@@ -464,7 +464,7 @@ dialog[open]{
     #secundary-nav{
         grid-template-columns: 100vw;
         padding: 0px;
-        grid-template-rows: .5fr 4fr 2fr;
+        grid-template-rows: .5fr 5fr 3fr;
     }
     .acts-container__filter-container > select{
         font-size: 1rem;
