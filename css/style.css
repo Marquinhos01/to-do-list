@@ -469,7 +469,7 @@ dialog[open]{
     .acts-container__filter-container > select{
         font-size: 1rem;
     }
-    ..temporal-add-list-in-main{
+    .temporal-add-list-in-main{
         font-size: var(--letter-size);
     }
 }
