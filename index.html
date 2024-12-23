@@ -36,8 +36,8 @@
                 <li class="header-principal-nav-list__item --3">
                     <!-- <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
                         <span class="material-symbols-outlined">
-                            account_circle
-                        </span>
+                            settings
+                            </span>
                     </button> -->
                 </li>
             </ul>
@@ -57,7 +57,7 @@
             <div class="create-list-window__form-part">
                 <form id="create-activity-form" method="dialog">
                     <input type="text" class="create-activity-input dialog-input" id="submit-listName" name="listName" placeholder="titulo" maxlength="37" required>
-                    <button type="submit" class="create-activity-input dialog-input">enviar</button>
+                    <button type="submit" class="create-activity-input dialog-input">AGREGAR</button>
                 </form>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <nav id="secundary-nav">
                 <div class="secundary-nav__search-part">
                     <label for="list-search"><span class="material-symbols-outlined">search</span></label>
-                    <input type="search" id="list-search">
+                    <input type="search" id="list-search" placeholder="buscar lista">
                 </div>
                 <div class="secundary-nav__lists-part">
                     <!-- <div class="list-container">
@@ -139,7 +139,7 @@
                                 <input type="date" id="date-off" name="date">
                             </div>
                             <div class="create-act__input-submit">
-                                <button type="submit" class="submit-act-created">mandar</button>
+                                <button type="submit" class="submit-act-created">AGREGAR</button>
                             </div>
                         </form>
                     </div>
@@ -157,7 +157,7 @@
                     <div class="mensage-before-choose-list">
                         <div>
                             <h6>error</h6>
-                            <p>debes elegir una lista previo a agregar una actividad: <button class="temporal-add-list-in-main">agregar lista</button></p>
+                            <p>debes <span class="temporal-add-list-in-main">elegir una lista</span> previo a agregar una actividad</p>
                         </div>
                     </div>
                     <!-- <div class="act">
@@ -172,8 +172,8 @@
                         </div>
                     </div> -->
                 </div>
-                <fieldset class="finished-acts__container">
-                    <legend>completadas</legend>
+                <details class="finished-acts__container">
+                    <summary>COMPLETADAS</summary>
                     <div class="finished-acts">
                         <!-- <div class="act">
                             <div class="act-part chechbox">
@@ -187,7 +187,7 @@
                             </div>
                         </div> -->
                     </div>
-                </fieldset>
+                </details>
             </section>
         </main>
     </div>
