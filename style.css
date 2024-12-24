@@ -53,6 +53,7 @@ select{
     background-color: var(--background-light-color);
     border: 3px solid var(--border-color-light);
     color: var(--letter-color-dark);
+    cursor: pointer;
 }
 
 button{
@@ -206,19 +207,28 @@ p{
     overflow: auto;
 }
 
+.secundary-nav__lists-part::-webkit-scrollbar{
+    display: block;
+}
+.secundary-nav__lists-part::-webkit-scrollbar-track{
+    background-color: var(--background-dark-color);
+    border-radius: var(--border-raidus-slow);
+}
+.secundary-nav__lists-part::-webkit-scrollbar-thumb{
+    background-color: var(--border-color-dark);
+    border-radius: var(--border-raidus-slow);
+}
+
 /** add/remove lists and groups */
 
 .secundary-nav__options-part__container{
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     gap: 4px;
     height: 100%;
     width: 100%;
 }
-
-/** default setting of button */
-
 
 /** lists-containers */
 
@@ -291,6 +301,10 @@ p{
 .acts-container__acts{
     position: relative;
     overflow: auto;
+}
+
+.create-act__form-data{
+    color: var(--letter-color-dark);
 }
 
 /** acts's style */
@@ -506,7 +520,7 @@ dialog[open]{
     #secundary-nav{
         grid-template-columns: 100vw;
         padding: 0px;
-        grid-template-rows: .5fr 5fr 3fr;
+        grid-template-rows: .9fr 5fr 1.3fr;
     }
     .acts-container__filter-container > select{
         font-size: 1rem;

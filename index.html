@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +67,7 @@
     <dialog id="delete-list-window">
         <div class="delete-list-window__container dialog-container">
             <div class="delete-list-window__top-part">
-                <h3 class="delete-list-advertence dialog-title">borrar: <span class="list-name-id"></span></h3>
+                <h3 class="delete-list-advertence dialog-title">borrar<span class="list-name-id" style ="display:none;"></span></h3>
             </div>
             <div class="delete-list-window__lower-part">
                 <button class="delete-list-accept dialog-input">borrar</button>
@@ -132,7 +132,7 @@
                         <form class="create-act__form-data">
                             <div class="create-act__input-name create-act__input-zone">
                                 <label for="act-name">nombre</label>
-                                <input type="text" id="act-name" name="name">
+                                <input type="text" id="act-name" name="name" placeholder="nombre de la actividad" required>
                             </div>
                             <div class="create-act__input-date create-act__input-zone">
                                 <label for="date-off">fecha</label>
