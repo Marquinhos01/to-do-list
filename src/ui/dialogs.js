@@ -4,7 +4,8 @@ let dialog = document.querySelector('.create-list-window');
 let buttonOpen= document.getElementById('add-list-button');
 let buttonDeleteList = document.querySelector('.delete-list-accept');
 let buttonKeepList = document.querySelector('.delete-list-rejact');
-var buttonOpenDeleteList = document.querySelectorAll('.delete-list');
+let buttonOpenDeleteList = document.querySelectorAll('.delete-list');
+let buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
 let dialogDeleteList = document.getElementById('delete-list-window');
 let listNameId = document.querySelector('.list-name-id');
 
@@ -21,8 +22,15 @@ buttonKeepList.addEventListener('click', () => {
     dialogDeleteList.close();
 });
 
-// * Agrega el evento que muestra el modal para eliminar una actividad
+// * Agrega el evento que muestra el modal para eliminar una lista
 buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
+    dialogDeleteList.showModal();
+    listNameId.innerText = a.name;
+    refreshDeleteEvents()
+    })
+});
+
+buttonOpenDeleteAct.forEach(a => {a.addEventListener('click', () => {
     dialogDeleteList.showModal();
     listNameId.innerText = a.name;
     refreshDeleteEvents()
@@ -31,9 +39,21 @@ buttonOpenDeleteList.forEach(a => {a.addEventListener('click', () => {
 
 // * evento que elimina la lista 
 buttonDeleteList.addEventListener('click', () => {
-    let a = parseInt(listNameId.textContent);
+    const a = listNameId.textContent.split(':');
     
-    allLists.splice(a, 1);
+    switch (a[0]) {
+        case 'list':
+            allLists.splice(a[1], 1);
+            break;
+        
+        case 'act':
+            allActs.splice(a[1],1);
+            ReLoadActs();
+            break
+        default:
+            break;
+    }
+
     localStorage.setItem('lists', (JSON.stringify(allLists)));
     dialogDeleteList.close();
     listContent.innerHTML = "";

@@ -11,11 +11,12 @@
     <meta name="description" content="La mejor forma para organizarte, con el mejor to-do list">
     <meta name="og:title" content="to-do">
     <meta name="og:description" content="La mejor forma para organizarte, con el mejor to-do list">
+    <script src="../src/scripts/CreateActivity.js"></script>
+    <script src="../src/scripts/methos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>TO-DO</title>
 </head>
 <body>
-    <!--creating the structure of the principal navbar/header-->
     
     <header class="header --top" id = "header-principal">
         <nav id = "header-principal__nav">
@@ -43,7 +44,6 @@
             </ul>
         </nav>
     </header>
-    <!-- dialog create list -->
     <dialog class="create-list-window">
         <div class="create-list-window__container dialog-container">
             <div class="create-list-window__top-part">
@@ -63,7 +63,6 @@
         </div>
     </dialog>
 
-    <!-- dialog delete list -->
     <dialog id="delete-list-window">
         <div class="delete-list-window__container dialog-container">
             <div class="delete-list-window__top-part">
@@ -76,7 +75,6 @@
         </div>
     </dialog>
 
-    <!-- begining of the second navbar -->
     <div id="all-content-container">
         <aside class="secundary-nav-container">
             <nav id="secundary-nav">
@@ -85,42 +83,15 @@
                     <input type="search" id="list-search" placeholder="buscar lista">
                 </div>
                 <div class="secundary-nav__lists-part">
-                    <!-- <div class="list-container">
-                        <div class="list-container__parts icon">
-                            <span class="material-symbols-outlined">
-                            filter_alt
-                            </span>
-                        </div>
-                        <div class="list-container__parts title">
-                            <p><span>title</span></p>
-                            max = 33unidades
-                        </div>
-                        <div class="list-container__parts delete">
-                            <button class="delete-list">
-                                <span class="material-symbols-outlined">
-                                delete
-                                </span>
-                            </button>
-                            <button class="edit-list">
-                                <span class="material-symbols-outlined">
-                                    tune
-                                    </span>
-                            </button>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="secundary-nav__options-part">
                     <div class="secundary-nav__options-part__container">
                         <button class="secundary-nav__options-part__container__button --add-list" id="add-list-button">
                             <span>agregar lista</span>
                         </button>
-                        <!-- <button class="secundary-nav__options-part__container__button --add-group" id="add-group-button">
-                            <span>agregar grupo</span>
-                        </button> -->
                     </div>
                 </div>
             </nav>
-            <script src="scripts/data/create-lists.js"></script>
         </aside>    
         <main class="acts-container-all">
             <dialog id="create-act-window">
@@ -160,39 +131,18 @@
                             <p>debes elegir una lista previo a agregar una actividad, para eso da <span class="temporal-add-list-in-main">click aqui</span></p>
                         </div>
                     </div>
-                    <!-- <div class="act">
-                        <div class="act-part chechbox">
-                            <input type="checkbox" class="act-chechbox">
-                        </div>
-                        <div class="act-part title">
-                            <span class="act-title">titulo</span>
-                        </div>
-                        <div class="act-part date">
-                            <span class="act-date">vence: 10/10/28</span>
-                        </div>
-                    </div> -->
                 </div>
                 <details class="finished-acts__container">
                     <summary>COMPLETADAS</summary>
                     <div class="finished-acts">
-                        <!-- <div class="act">
-                            <div class="act-part chechbox">
-                                <input type="checkbox" class="act-chechbox">
-                            </div>
-                            <div class="act-part title">
-                                <p><span class="act-title">titulo</span></p>
-                            </div>
-                            <div class="act-part date">
-                                <span class="act-date">vence: 10/10/28</span>
-                            </div>
-                        </div> -->
                     </div>
                 </details>
             </section>
         </main>
     </div>
-    <script src="scripts/ui/width-secundary-nav.js"></script>
-    <script src="scripts/data/acts.js"></script>
-    <script src="scripts/ui/dialogs.js"></script>
+    <script src="../src/data/lists.js"></script>
+    <script src="../src/ui/width-secundary-nav.js"></script>
+    <script src="../src/data/acts.js"></script>
+    <script src="../src/ui/dialogs.js"></script>
 </body>
 </html>

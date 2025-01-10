@@ -313,13 +313,28 @@ p{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     margin: var(--default-margin) 0px;
     padding: var(--default-padding) 15px;
     background-color: #3332;
     border-radius: var(--border-raidus-slow);
     gap: 20px;
     color: var(--letter-color-dark);
+}
+
+.act-part.fst{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    
+    p{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .act-chechbox{
@@ -345,11 +360,6 @@ p{
     summary{
         color: var(--letter-color-dark);
     }
-
-    /* legend{
-        padding: var(--default-padding);
-        border: 1px solid #3338;
-    } */
 }
 
 /** dialog , create list */

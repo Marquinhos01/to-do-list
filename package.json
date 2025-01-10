@@ -1,0 +1,13 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "main": "createTreeOrderDirs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Lista de actividades hecha para organizar todo tipo de pendientes",
+  "type":"module"
+}
