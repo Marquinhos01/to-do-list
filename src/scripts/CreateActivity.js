@@ -1,9 +1,13 @@
 class CreateActivity {
+    name;
+    date;
+    finished;
+    id;
     constructor(name, date, finished, id) {
         this.name = name;
         this.date = date;
         this.finished = finished;
-        this.id = id
+        this.id = id;
     }
 
     Create(){
@@ -17,7 +21,7 @@ class CreateActivity {
                     <p class="act-title">${this.name}</p>
                 </div>
                 <div class="act-part date">
-                    <span class="act-date">vence: ${this.date}</span>
+                    <span class="act-date">${this.date != ""? `vence: ${this.date}` : ""}</span>
                 </div>
             </div>
             <div class= "act-part scd">
