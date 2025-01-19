@@ -112,6 +112,28 @@ function assignSelectListActs(list) {
     })
 };
 
+function AssignChangeListName(button) {
+    button.addEventListener("click", ()=>{
+        console.log(1)
+        const id = button.name;
+
+        allLists[id].listName = prompt("cual sera el nuevo nombre?");
+
+        const listContent = document.querySelector('.secundary-nav__lists-part');
+        listContent.innerHTML = "";
+
+        for (let i = 0; i < allLists.length; i++) {
+            const element = allLists[i];
+            CreateList(i, element.listName)
+        }
+
+        localStorage.setItem('lists', (JSON.stringify(allLists)));
+        
+        refreshDeleteEvents();
+        ReLoadActs();
+    })
+}
+
 // * Reune las dos funciones para asignar eventos (deletelist, listoptions)
 function refreshDeleteEvents() {
     const buttonOpenDeleteList = document.querySelectorAll('.delete-list');
@@ -119,6 +141,9 @@ function refreshDeleteEvents() {
     
     const buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
     buttonOpenDeleteAct.forEach(button => assignDeleteListEvent('act', button));
+
+    const changeListName = document.querySelectorAll(".edit-list");
+    changeListName.forEach(button => AssignChangeListName(button));
 
     const listsOptions = document.querySelectorAll(".select-list");
     listsOptions.forEach(list => assignSelectListActs(list));
