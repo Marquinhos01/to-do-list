@@ -11,7 +11,7 @@
     <meta name="description" content="La mejor forma para organizarte, con el mejor to-do list">
     <meta name="og:title" content="to-do">
     <meta name="og:description" content="La mejor forma para organizarte, con el mejor to-do list">
-    <script src="../src/scripts/CreateActivity.js"></script>
+    <script src="../src/scripts/Activity.js"></script>
     <script src="../src/scripts/methos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>TO-DO</title>
@@ -139,7 +139,25 @@
                 </details>
             </section>
         </main>
+        <aside class="modify-act-space">
+            <div class="modify-act-space__container">
+                <div class="modify-act-space__part">
+                    <button class="arrow-back-btn">
+                        <span class="material-symbols-outlined">
+                            arrow_back
+                            </span>
+                    </button>
+                </div>
+                <div class="modify-act-space__part" id="modify-act-form">
+                    <input type="text" name="act-name" id="modify-act-name">
+                    <input type="date" name="date" id="modify-act-date">
+                    <textarea name="details" rows="20" id="modify-act-details"></textarea>
+                    <button id="modify-act-submit">guardar</button>
+                </div>
+            </div>
+        </aside>
     </div>
+    <script src="src/ui/modify-acts.js"></script>
     <script src="src/data/lists.js"></script>
     <script src="src/ui/width-secundary-nav.js"></script>
     <script src="src/data/acts.js"></script>

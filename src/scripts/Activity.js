@@ -1,15 +1,51 @@
-class CreateActivity {
+class Activity {
     name;
     date;
     finished;
     id;
-    constructor(name, date, finished, id) {
+    description;
+
+    constructor(name, date, finished, id, description) {
         this.name = name;
         this.date = date;
         this.finished = finished;
         this.id = id;
+        this.description = description;
     }
 
+    
+    set Name(newName){
+        this.name = newName;
+    }
+    
+    set Date(newDate){
+        this.date = newDate;
+    }
+    
+    set Id(newId){
+        this.id = newId;
+    }
+
+    set Description(newDescription){
+        this.description = newDescription;
+    }
+
+    get Name(){
+        return this.name;
+    }
+
+    get Date(){
+        return this.date;
+    }
+
+    get Description(){
+        return this.description;
+    }
+
+    get Data(){
+        return [this.id ,this.name, this.date]
+    }
+    
     Create(){
         let a = `
         <div class="act ${this.id}">
@@ -17,7 +53,7 @@ class CreateActivity {
                 <div class="act-part chechbox">
                     <input type="checkbox" class="act-chechbox ${this.id}">
                 </div>
-                <div class="act-part title">
+                <div class="act-part title" name="${this.id}">
                     <p class="act-title">${this.name}</p>
                 </div>
                 <div class="act-part date">
@@ -25,6 +61,11 @@ class CreateActivity {
                 </div>
             </div>
             <div class= "act-part scd">
+                <button class="open-modify-act-space" name="${this.id}">
+                    <span class="material-symbols-outlined">
+                        contract_edit
+                    </span>
+                </button>
                 <button class="delete-act" name="${this.id}">
                     <span class="material-symbols-outlined">
                     delete
@@ -39,20 +80,12 @@ class CreateActivity {
             currentSpace.insertAdjacentHTML("beforeend", a);
         }
     }
-
+    
     ChangeState(){
         if(this.finished){
             this.finished = false;
         } else {
             this.finished = true;
         }
-    }
-
-    set Id(newId){
-        this.id = newId;
-    }
-
-    get Data(){
-        return [this.id ,this.name, this.date]
     }
 }

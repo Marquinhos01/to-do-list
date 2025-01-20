@@ -1,10 +1,10 @@
 // * ReLoadActs pero por fecha en vez de hacerlo por orden de creacion
-// * setea todas las actividades como CreateActivity --> guarda esa info en allActs y las sube al local storage y a la lista.
+// * setea todas las actividades como Activity --> guarda esa info en allActs y las sube al local storage y a la lista.
 function ReLoadActs(){
     finishedSpace.innerHTML = "";
     currentSpace.innerHTML = "";
     if (allActs.length > 1){ //? are activities inside  ? 
-        let f = allActs.map((e) => new CreateActivity(e.name, e.date, e.finished)) //* <-- Assign the class for each activity.
+        let f = allActs.map((e) => new Activity(e.name, e.date, e.finished,e.id,e.description)) //* <-- Assign the class for each activity.
         let g = allActs.slice(0, 1)
         
         allActs.splice(0, allActs.length)
@@ -150,6 +150,21 @@ function refreshDeleteEvents() {
 
     const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
     checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
+
+    const openBtn = document.querySelectorAll(".open-modify-act-space");
+    openBtn.forEach(btn => {
+        btn.addEventListener("click", ()=>{
+            aside.style.display = "flex";
+            actSelectedMD = allActs[btn.name];
+            nameSpace.value = actSelectedMD.Name;
+            dateSpace.value = actSelectedMD.Date;
+            detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
+        })
+    });
+};
+
+function CreateList(id, name) {
+    listContent.insertAdjacentHTML('beforeend',ListStructure(id, name))
 };
 
 const ListStructure =  (id, name) => {
@@ -178,8 +193,4 @@ const ListStructure =  (id, name) => {
                         </div>
                     </div>
 `
-};
-
-function CreateList(id, name) {
-    listContent.insertAdjacentHTML('beforeend',ListStructure(id, name))
 };

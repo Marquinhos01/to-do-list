@@ -514,6 +514,36 @@ dialog[open]{
     }
 }
 
+modify-act-space,
+#modify-act-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.modify-act-space{
+    display: none;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    padding: 20px;
+    height: 100vh;
+    border-radius: 20px 0px 0px 20px;
+    background-color: var(--background-dark-color);
+    z-index: 100;
+}
+
+.modify-act-space input, textarea{
+    padding: 4px;
+    resize:none;
+}
+
+.arrow-back-btn{
+    margin-bottom: 10px;
+}
+
 
 @media only screen and (max-width: 1160px) {
     .secundary-nav-container.active{
@@ -546,5 +576,10 @@ dialog[open]{
 
     .create-act__input-zone label::after{
         content: none;
+    }
+    .modify-act-space{
+        justify-content: center;
+        width: 100vw;
+        border-radius: 0px;
     }
 }

@@ -15,6 +15,15 @@ let actsFilterByDate = document.getElementById("acts-filter");
 let listsOptions = document.querySelectorAll(".select-list");
 let checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
 
+const closeBtn = document.querySelector(".arrow-back-btn");
+const aside = document.querySelector(".modify-act-space");
+const nameSpace = document.getElementById("modify-act-name");
+const dateSpace = document.getElementById("modify-act-date");
+const detailsSpace = document.getElementById("modify-act-details");
+const newDataSubmit = document.getElementById("modify-act-submit");
+let actSelectedMD;
+
+
 addAct.addEventListener("click", () => {
     createAct.showModal();
 })
@@ -32,7 +41,7 @@ formDataCA.addEventListener("submit", (e) => {
 
     a["finished"] = false; 
 
-    let actividad = new CreateActivity(a["name"], a["date"], a["finished"]);
+    let actividad = new Activity(a["name"], a["date"], a["finished"]);
 
     allActs.splice(1,0,actividad);
 
@@ -46,6 +55,29 @@ formDataCA.addEventListener("submit", (e) => {
 });
 
 actsFilterByDate.addEventListener("change", () => {
+    ReLoadActs();
+    refreshDeleteEvents();
+})
+
+
+
+closeBtn.addEventListener("click", ()=>{
+    aside.style.display = "none";
+})
+
+newDataSubmit.addEventListener("click", ()=>{
+    actSelectedMD.Name = nameSpace.value;
+    actSelectedMD.Date = dateSpace.value;
+    actSelectedMD.Description = detailsSpace.value;
+
+    nameSpace.vale = "";
+    detailsSpace.textContent = "";
+    dateSpace.value = "";
+    aside.style.display = "none";
+
+    allLists[(allActs[0])]["acts"] = allActs;
+    localStorage.setItem('lists', (JSON.stringify(allLists)));
+
     ReLoadActs();
     refreshDeleteEvents();
 })
