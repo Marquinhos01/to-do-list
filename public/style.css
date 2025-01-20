@@ -30,7 +30,9 @@ body{
     font-size: var(--letter-size);
 }
 
-input{
+input,
+textarea{
+    font-family: "noto sans", sans-serif;
     padding: 10px;
     width: 200px;
     outline: none;
@@ -42,7 +44,13 @@ input{
     color: var(--letter-color-dark);
 }
 
-input::placeholder{
+textarea{
+    border-right: 3.4px solid var(--border-color-dark);
+    border-radius: 1rem 1rem var(--border-raidus-slow) var(--border-raidus-slow);
+}
+
+input::placeholder,
+textarea::placeholder{
     color: var(--letter-color-dark);
 }
 
@@ -536,7 +544,7 @@ modify-act-space,
 }
 
 .modify-act-space input, textarea{
-    padding: 4px;
+    padding: 7px;
     resize:none;
 }
 
