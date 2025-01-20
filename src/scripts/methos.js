@@ -77,6 +77,16 @@ function AssignEventOfCompleteAct(checkbox) {
         ReLoadActs();
         const buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
         buttonOpenDeleteAct.forEach(button => assignDeleteListEvent('act', button));
+        const openBtn = document.querySelectorAll(".open-modify-act-space");
+        openBtn.forEach(btn => {
+            btn.addEventListener("click", ()=>{
+                aside.style.display = "flex";
+                actSelectedMD = allActs[btn.name];
+                nameSpace.value = actSelectedMD.Name;
+                dateSpace.value = actSelectedMD.Date;
+                detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
+            })
+        });
     })
 };
 
@@ -114,7 +124,6 @@ function assignSelectListActs(list) {
 
 function AssignChangeListName(button) {
     button.addEventListener("click", ()=>{
-        console.log(1)
         const id = button.name;
 
         allLists[id].listName = prompt("cual sera el nuevo nombre?");
