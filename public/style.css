@@ -350,6 +350,10 @@ label:hover{
     }
 }
 
+.act-part.title{
+    cursor: pointer;
+}
+
 .act-chechbox{
     width: auto;
 }
