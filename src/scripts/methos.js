@@ -15,16 +15,16 @@ function ReLoadActs(){
             allActs[i].Id = i;
             allActs[i].Create();
         }
-    }
-    // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
-    const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
-    checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
-    allLists[(allActs[0])]["acts"] = allActs;
-    localStorage.setItem('lists', (JSON.stringify(allLists)));
-    
-    actsFilterByDate = document.getElementById("acts-filter");
-    if(actsFilterByDate.value == "date"){
-        OrderActsByDate();
+        // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
+        const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+        checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
+        allLists[(allActs[0])]["acts"] = allActs;
+        localStorage.setItem('lists', (JSON.stringify(allLists)));
+        
+        actsFilterByDate = document.getElementById("acts-filter");
+        if(actsFilterByDate.value == "date"){
+            OrderActsByDate();
+        }
     }
 };
 

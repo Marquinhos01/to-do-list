@@ -44,6 +44,12 @@ buttonDeleteList.addEventListener('click', () => {
     switch (a[0]) {
         case 'list':
             allLists.splice(a[1], 1);
+            if(allActs.length > 1 && allActs[0] != a[1]){
+                allActs[0]--;
+            } else {
+                allActs = [];
+                ReLoadActs();
+            }
             break;
         
         case 'act':
