@@ -150,9 +150,18 @@
                     </button>
                 </div>
                 <div class="modify-act-space__part" id="modify-act-form">
-                    <input type="text" name="act-name" id="modify-act-name" placeholder="nombre">
-                    <input type="date" name="date" id="modify-act-date">
-                    <textarea name="details" rows="20" id="modify-act-details" placeholder="descripcion"></textarea>
+                    <div class="modify-act-fragment">
+                        <label for="modify-act-name">nombre</label>
+                        <input type="text" name="act-name" id="modify-act-name" placeholder="nombre">
+                    </div>
+                    <div class="modify-act-fragment">
+                        <label for="modify-act-date">fecha</label>
+                        <input type="date" name="date" id="modify-act-date">
+                    </div>
+                    <div class="modify-act-fragment">
+                        <label for="modify-act-details">descripcion</label>
+                        <textarea name="details" rows="14" id="modify-act-details" placeholder="descripcion"></textarea>
+                    </div>
                     <button id="modify-act-submit">guardar</button>
                 </div>
             </div>

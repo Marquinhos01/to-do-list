@@ -15,16 +15,16 @@ function ReLoadActs(){
             allActs[i].Id = i;
             allActs[i].Create();
         }
-    }
-    // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
-    const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
-    checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
-    allLists[(allActs[0])]["acts"] = allActs;
-    localStorage.setItem('lists', (JSON.stringify(allLists)));
-    
-    actsFilterByDate = document.getElementById("acts-filter");
-    if(actsFilterByDate.value == "date"){
-        OrderActsByDate();
+        // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
+        const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+        checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
+        allLists[(allActs[0])]["acts"] = allActs;
+        localStorage.setItem('lists', (JSON.stringify(allLists)));
+        
+        actsFilterByDate = document.getElementById("acts-filter");
+        if(actsFilterByDate.value == "date"){
+            OrderActsByDate();
+        }
     }
 };
 
@@ -67,13 +67,10 @@ function assignDeleteListEvent(type, button) {
 
 // * Assign the complete option to the acts
 function AssignEventOfCompleteAct(checkbox) {
-    let checkboxActId = checkbox.className.split(" ");
-    checkbox.addEventListener("change", () => {
-        for (let i = 0; i < allActs.length; i++) {
-            if(i == checkboxActId[1]){
-                allActs[i].ChangeState();
-            }
-        }
+    const checkboxActId = checkbox.className.split(" ");
+    checkbox.addEventListener("click", () => {
+        console.log(checkboxActId);
+        allActs[checkboxActId[2]? checkboxActId[2] : checkboxActId[1]].ChangeState();
         ReLoadActs();
         const buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
         buttonOpenDeleteAct.forEach(button => assignDeleteListEvent('act', button));
@@ -159,6 +156,9 @@ function refreshDeleteEvents() {
 
     const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
     checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
+
+    const actName = document.querySelectorAll(".act-part.title");
+    actName.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
 
     const openBtn = document.querySelectorAll(".open-modify-act-space");
     openBtn.forEach(btn => {

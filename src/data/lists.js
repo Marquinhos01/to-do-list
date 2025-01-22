@@ -36,6 +36,10 @@ formList.addEventListener('submit', (event) => {
 
     dialog.close();
 
+    if(allActs.length > 1){
+        allActs[0]++;
+    }
+    
     refreshDeleteEvents();
 })
 

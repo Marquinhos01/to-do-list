@@ -51,10 +51,14 @@ class Activity {
         <div class="act ${this.id}">
             <div class= "act-part fst" >
                 <div class="act-part chechbox">
-                    <input type="checkbox" class="act-chechbox ${this.id}">
+                    ${this.finished == false
+                        ? `<button class="act-chechbox ${this.id}"><span class="material-symbols-outlined">check_box_outline_blank</span></button>`
+                        :`<button class="act-chechbox ${this.id}"><span class="material-symbols-outlined">select_check_box</span></button>`}
                 </div>
-                <div class="act-part title" name="${this.id}">
-                    <p class="act-title">${this.name}</p>
+                <div class="act-part title ${this.id}">
+                    <p class="act-title" ${this.finished == true
+                    ? 'style="text-decoration: line-through;"'
+                    : 'style="text-decoration: none;"'}>${this.name}</p>
                 </div>
                 <div class="act-part date">
                     <span class="act-date">${this.date != ""? `vence: ${this.date}` : ""}</span>
