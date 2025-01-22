@@ -91,8 +91,13 @@ button:hover:not(#button-open-second-nav, #button-open-user-options){
     color: var(--letter-color-dark);
 }
 
-p{
+p,
+label{
     color: var(--letter-color-dark);
+}
+
+label:hover{
+    cursor: pointer;
 }
 
 /**Estilo que le dará al header principal*/
@@ -550,6 +555,18 @@ modify-act-space,
 
 .arrow-back-btn{
     margin-bottom: 10px;
+}
+
+.modify-act-fragment{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: flex-start;
+
+    label{
+        margin-left: 20px;
+        text-transform: uppercase;
+    }
 }
 
 
