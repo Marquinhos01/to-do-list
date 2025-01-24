@@ -8,6 +8,17 @@ let buttonOpenDeleteList = document.querySelectorAll('.delete-list');
 let buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
 let dialogDeleteList = document.getElementById('delete-list-window');
 let listNameId = document.querySelector('.list-name-id');
+const buttonSettings = document.getElementById("button-open-user-options");
+const buttonCloseSettings = document.getElementById("dialog-settings__close-btn")
+const settings = document.querySelector(".dialog-settings");
+
+buttonSettings.addEventListener("click", ()=>{
+    settings.showModal();
+});
+
+buttonCloseSettings.addEventListener("click", ()=>{
+    settings.close();
+})
 
 buttonOpen.addEventListener('click', () => {
     dialog.showModal();

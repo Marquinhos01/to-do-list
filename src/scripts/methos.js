@@ -16,7 +16,7 @@ function ReLoadActs(){
             allActs[i].Create();
         }
         // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
-        const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+        const checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
         checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
         allLists[(allActs[0])]["acts"] = allActs;
         localStorage.setItem('lists', (JSON.stringify(allLists)));
@@ -154,7 +154,7 @@ function refreshDeleteEvents() {
     const listsOptions = document.querySelectorAll(".select-list");
     listsOptions.forEach(list => assignSelectListActs(list));
 
-    const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+    const checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
     checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
 
     const actName = document.querySelectorAll(".act-part.title");

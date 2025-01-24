@@ -64,7 +64,7 @@ select{
     cursor: pointer;
 }
 
-button{
+button:not(#button-open-second-nav, #button-open-user-options, .act-checkbox){
     background-color: var(--background-light-color);
     border: 2px solid var(--border-color-light);
     color: var(--letter-color-dark);
@@ -74,7 +74,7 @@ button{
     transition: box-shadow .1s, background-color .2s, border .2s, background .2s;
 }
 
-button:active:not(#button-open-second-nav, #button-open-user-options){
+button:active:not(#button-open-second-nav, #button-open-user-options, .act-checkbox){
     box-shadow: 0px 0px 20px var(--border-color-light);
 }
 
@@ -85,7 +85,7 @@ button:active:not(#button-open-second-nav, #button-open-user-options){
 }
 
 /*? .secundary-nav__options-part__container__button:hover, .list-container__parts.delete >  */
-button:hover:not(#button-open-second-nav, #button-open-user-options){
+button:hover:not(#button-open-second-nav, #button-open-user-options, .act-checkbox){
     background-color: var(--background-dark-color);
     border: 2px solid var(--border-color-dark);
     color: var(--letter-color-dark);
@@ -286,8 +286,8 @@ label:hover{
 /** all content */
 
 .acts-container-all{
-    display: flex;
-    flex-flow: column nowrap;
+    display: grid;
+    grid-template-rows: 1fr 10fr;
     gap: 15px;
     width: 100%;
     padding: var(--default-padding);
@@ -354,7 +354,11 @@ label:hover{
     cursor: pointer;
 }
 
-.act-chechbox{
+.act-checkbox{
+    background: none;
+    border: none;
+    color: #eee;
+    cursor: pointer;
     width: auto;
 }
 
@@ -378,9 +382,6 @@ label:hover{
         color: var(--letter-color-dark);
     }
 }
-
-/** dialog , create list */
-
 
 dialog[open]{
     display: flex;
@@ -491,6 +492,34 @@ dialog[open]{
     height: 100%;
 }
 
+/** settings */
+
+.dialog-settings{
+    position: relative;
+}
+
+.dialog-settings__header{
+    display: block;
+    color: white;
+    text-transform: uppercase;
+}
+
+.dialog-settings__close-window{
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+
+    button{
+        margin: 0px 10px 10px 0px;
+    }
+}
+
+.dialog-settings__options div{
+    display: block;
+}
 
 /* -> mensaje de elegir lista <- */
 

@@ -13,7 +13,7 @@ const dateOff =  document.getElementById("date-off");
 const actName = document.getElementById("act-name");
 let actsFilterByDate = document.getElementById("acts-filter");
 let listsOptions = document.querySelectorAll(".select-list");
-let checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+let checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
 
 const closeBtn = document.querySelector(".arrow-back-btn");
 const aside = document.querySelector(".modify-act-space");
