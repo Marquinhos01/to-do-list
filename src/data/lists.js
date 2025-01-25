@@ -1,4 +1,4 @@
-let allLists =  JSON.parse(localStorage.getItem('lists')) || [];
+let allLists =  JSON.parse(localStorage.getItem('lists'))?.map(list => new ListConstructor(list.listName, list.acts, list.emogi, list.id)) || [];
 let formList = document.getElementById('create-activity-form');
 let listContent = document.querySelector('.secundary-nav__lists-part');
 let pageWidth = window.innerWidth;
@@ -8,17 +8,20 @@ refreshDeleteEvents();
 // * It creates the list store in the local storage
 for (let i = 0; i < allLists.length; i++) {
     const element = allLists[i];
-    CreateList(i, element.listName)
+    element.Id = i;
+    element.CreateList();
 }
 
 formList.addEventListener('submit', (event) => {
     event.preventDefault();
     let formContent = new FormData(formList);
-    let list = {
-        "acts" : [],
-    };
-    formContent.forEach((value,key)=>{
-            list[key] = value;
+    let list;
+    for (const element of allLists) {
+        element.Id += 1;
+    }
+    formContent.forEach((value)=>{
+            list = new ListConstructor(value);
+            list.Id = 0;
     })
 
     allLists.unshift(list);
@@ -26,7 +29,7 @@ formList.addEventListener('submit', (event) => {
     listContent.innerHTML = "";
     for (let i = 0; i < allLists.length; i++) {
         const element = allLists[i];
-        CreateList(i, element.listName)
+        element.CreateList();
     }
 
     localStorage.setItem('lists', (JSON.stringify(allLists)));
@@ -51,7 +54,8 @@ searchContent.addEventListener('keyup', () => {
 
     for (let i = 0; i < allLists.length; i++){
         if((allLists[i].listName).includes(v)){ //? <-- Find the list?
-            CreateList(i, allLists[i].listName)
+            const element = allLists[i];
+            element.CreateList();
         }else{
             continue
         }

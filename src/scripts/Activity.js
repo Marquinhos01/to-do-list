@@ -47,13 +47,13 @@ class Activity {
     }
     
     Create(){
-        let a = `
+        const a = `
         <div class="act ${this.id}">
             <div class= "act-part fst" >
                 <div class="act-part chechbox">
                     ${this.finished == false
-                        ? `<button class="act-chechbox ${this.id}"><span class="material-symbols-outlined">check_box_outline_blank</span></button>`
-                        :`<button class="act-chechbox ${this.id}"><span class="material-symbols-outlined">select_check_box</span></button>`}
+                        ? `<button class="act-checkbox ${this.id}"><span class="material-symbols-outlined">check_box_outline_blank</span></button>`
+                        :`<button class="act-checkbox ${this.id}"><span class="material-symbols-outlined">select_check_box</span></button>`}
                 </div>
                 <div class="act-part title ${this.id}">
                     <p class="act-title" ${this.finished == true

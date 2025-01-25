@@ -16,9 +16,9 @@ function ReLoadActs(){
             allActs[i].Create();
         }
         // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
-        const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+        const checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
         checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
-        allLists[(allActs[0])]["acts"] = allActs;
+        allLists[(allActs[0])].Acts = allActs;
         localStorage.setItem('lists', (JSON.stringify(allLists)));
         
         actsFilterByDate = document.getElementById("acts-filter");
@@ -69,7 +69,6 @@ function assignDeleteListEvent(type, button) {
 function AssignEventOfCompleteAct(checkbox) {
     const checkboxActId = checkbox.className.split(" ");
     checkbox.addEventListener("click", () => {
-        console.log(checkboxActId);
         allActs[checkboxActId[2]? checkboxActId[2] : checkboxActId[1]].ChangeState();
         ReLoadActs();
         const buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
@@ -130,7 +129,7 @@ function AssignChangeListName(button) {
 
         for (let i = 0; i < allLists.length; i++) {
             const element = allLists[i];
-            CreateList(i, element.listName)
+            element.CreateList();
         }
 
         localStorage.setItem('lists', (JSON.stringify(allLists)));
@@ -154,7 +153,7 @@ function refreshDeleteEvents() {
     const listsOptions = document.querySelectorAll(".select-list");
     listsOptions.forEach(list => assignSelectListActs(list));
 
-    const checkboxChangeStateActs = document.querySelectorAll(".act-chechbox");
+    const checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
     checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
 
     const actName = document.querySelectorAll(".act-part.title");
@@ -170,6 +169,7 @@ function refreshDeleteEvents() {
             detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
         })
     });
+<<<<<<< HEAD
 };
 
 function CreateList(id, name) {
@@ -203,3 +203,6 @@ const ListStructure =  (id, name) => {
                     </div>
 `
 };
+=======
+};
+>>>>>>> develop

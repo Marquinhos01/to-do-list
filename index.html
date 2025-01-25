@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="public/images/web-icon.webp" type="image/x-icon">
     <script src="../src/scripts/Activity.js"></script>
     <script src="../src/scripts/methos.js"></script>
+    <script src="src/scripts/ListConstructor.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>TO-DO</title>
 </head>
@@ -36,11 +37,11 @@
                 </li>
                 <!-- ! no se creo el apartado de configuraciones. No se va a mostrar el elemento hasta ese momento. Se mantiene el <li> para no romper la estructura (estilo) -->
                 <li class="header-principal-nav-list__item --3">
-                    <!-- <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
+                    <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
                         <span class="material-symbols-outlined">
                             settings
                             </span>
-                    </button> -->
+                    </button> 
                 </li>
             </ul>
         </nav>
@@ -60,6 +61,27 @@
                     <input type="text" class="create-activity-input dialog-input" id="submit-listName" name="listName" placeholder="titulo" maxlength="37" required>
                     <button type="submit" class="create-activity-input dialog-input">AGREGAR</button>
                 </form>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="dialog-settings">
+        <div class="dialog-settings dialog-container">
+            <div class="dialog-settings__close-window">
+                <button id="dialog-settings__close-btn">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+            <div class="dialog-settings__header">
+                <h3>settings</h3>
+            </div>
+            <div class="dialog-settings__options">
+                <div class="dialog-settings__general-options"></div>
+                <div class="dialog-settings__save-options"></div>
+                <div class="dialog-settings__delete-part"></div>
+                <div class="dialog-settings__report"><p>report bug <a href="https://github.com/Marquinhos01/to-do-list/issues" target="_blank" rel="noopener noreferrer">click here</a></p></div>
             </div>
         </div>
     </dialog>
