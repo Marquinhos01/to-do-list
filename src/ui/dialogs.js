@@ -55,6 +55,10 @@ buttonDeleteList.addEventListener('click', () => {
     switch (a[0]) {
         case 'list':
             allLists.splice(a[1], 1);
+            for (let i = a[1]; i < allLists.length; i++) {
+                const element = allLists[i];
+                element.Id -=1;
+            }
             if(allActs.length > 1 && allActs[0] != a[1]){
                 allActs[0]--;
             } else {
@@ -76,7 +80,7 @@ buttonDeleteList.addEventListener('click', () => {
     listContent.innerHTML = "";
     for (let i = 0; i < allLists.length; i++) {
         const element = allLists[i];
-        CreateList(i, element.listName)
+        element.CreateList();
     }
     refreshDeleteEvents();
 });

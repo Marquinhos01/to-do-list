@@ -18,7 +18,7 @@ function ReLoadActs(){
         // * cada que se refresque la zona de actividades se verficara si esta o no el filtro por fecha
         const checkboxChangeStateActs = document.querySelectorAll(".act-checkbox");
         checkboxChangeStateActs.forEach(checkbox => AssignEventOfCompleteAct(checkbox));
-        allLists[(allActs[0])]["acts"] = allActs;
+        allLists[(allActs[0])].Acts = allActs;
         localStorage.setItem('lists', (JSON.stringify(allLists)));
         
         actsFilterByDate = document.getElementById("acts-filter");
@@ -69,7 +69,6 @@ function assignDeleteListEvent(type, button) {
 function AssignEventOfCompleteAct(checkbox) {
     const checkboxActId = checkbox.className.split(" ");
     checkbox.addEventListener("click", () => {
-        console.log(checkboxActId);
         allActs[checkboxActId[2]? checkboxActId[2] : checkboxActId[1]].ChangeState();
         ReLoadActs();
         const buttonOpenDeleteAct = document.querySelectorAll('.delete-act');
@@ -130,7 +129,7 @@ function AssignChangeListName(button) {
 
         for (let i = 0; i < allLists.length; i++) {
             const element = allLists[i];
-            CreateList(i, element.listName)
+            element.CreateList();
         }
 
         localStorage.setItem('lists', (JSON.stringify(allLists)));
@@ -170,36 +169,4 @@ function refreshDeleteEvents() {
             detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
         })
     });
-};
-
-function CreateList(id, name) {
-    listContent.insertAdjacentHTML('beforeend',ListStructure(id, name))
-};
-
-const ListStructure =  (id, name) => {
-    return `
-                    <div class="list-container" name="${id}">
-                        <div class="list-container__parts icon">
-                            <span class="material-symbols-outlined">
-                            filter_alt
-                            </span>
-                        </div>
-                        <div class="list-container__parts title select-list ${id}">
-                            <p><span>${name}<span></p>
-                            <!-- max = 33unidades -->
-                        </div>
-                        <div class="list-container__parts delete">
-                            <button class="delete-list" name="${id}">
-                                <span class="material-symbols-outlined">
-                                delete
-                                </span>
-                            </button>
-                            <button class="edit-list" name="${id}">
-                                <span class="material-symbols-outlined">
-                                    tune
-                                    </span>
-                            </button>
-                        </div>
-                    </div>
-`
 };

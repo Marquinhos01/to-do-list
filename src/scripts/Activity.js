@@ -47,7 +47,7 @@ class Activity {
     }
     
     Create(){
-        let a = `
+        const a = `
         <div class="act ${this.id}">
             <div class= "act-part fst" >
                 <div class="act-part chechbox">
