@@ -169,40 +169,4 @@ function refreshDeleteEvents() {
             detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
         })
     });
-<<<<<<< HEAD
 };
-
-function CreateList(id, name) {
-    listContent.insertAdjacentHTML('beforeend',ListStructure(id, name))
-};
-
-const ListStructure =  (id, name) => {
-    return `
-                    <div class="list-container" name="${id}">
-                        <div class="list-container__parts icon">
-                            <span class="material-symbols-outlined">
-                            filter_alt
-                            </span>
-                        </div>
-                        <div class="list-container__parts title select-list ${id}">
-                            <p><span>${name}<span></p>
-                            <!-- max = 33unidades -->
-                        </div>
-                        <div class="list-container__parts delete">
-                            <button class="delete-list" name="${id}">
-                                <span class="material-symbols-outlined">
-                                delete
-                                </span>
-                            </button>
-                            <button class="edit-list" name="${id}">
-                                <span class="material-symbols-outlined">
-                                    tune
-                                    </span>
-                            </button>
-                        </div>
-                    </div>
-`
-};
-=======
-};
->>>>>>> develop
