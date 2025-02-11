@@ -35,7 +35,6 @@
                         to - do
                     </h1>
                 </li>
-                <!-- ! no se creo el apartado de configuraciones. No se va a mostrar el elemento hasta ese momento. Se mantiene el <li> para no romper la estructura (estilo) -->
                 <li class="header-principal-nav-list__item --3">
                     <button class="header-principal-nav-list-item__button --2" id="button-open-user-options">
                         <span class="material-symbols-outlined">
@@ -78,8 +77,10 @@
                 <h3>settings</h3>
             </div>
             <div class="dialog-settings__options">
-                <div class="dialog-settings__general-options"></div>
-                <div class="dialog-settings__save-options"></div>
+                <div class="dialog-settings__general-options">
+                </div>
+                <div class="dialog-settings__save-options">
+                </div>
                 <div class="dialog-settings__delete-part"></div>
                 <div class="dialog-settings__report"><p>report bug <a href="https://github.com/Marquinhos01/to-do-list/issues" target="_blank" rel="noopener noreferrer">click here</a></p></div>
             </div>
@@ -181,15 +182,18 @@
                         <input type="date" name="date" id="modify-act-date">
                     </div>
                     <div class="modify-act-fragment">
+                        <label for="modify-act-time">hora</label>
+                        <input type="time" name="date" id="modify-act-time">
+                    </div>
+                    <div class="modify-act-fragment">
                         <label for="modify-act-details">descripcion</label>
-                        <textarea name="details" rows="14" id="modify-act-details" placeholder="descripcion"></textarea>
+                        <textarea name="details" rows="10" id="modify-act-details" placeholder="descripcion"></textarea>
                     </div>
                     <button id="modify-act-submit">guardar</button>
                 </div>
             </div>
         </aside>
     </div>
-    <script src="src/ui/modify-acts.js"></script>
     <script src="src/data/lists.js"></script>
     <script src="src/ui/width-secundary-nav.js"></script>
     <script src="src/data/acts.js"></script>

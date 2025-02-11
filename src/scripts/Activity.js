@@ -1,13 +1,15 @@
 class Activity {
     name;
     date;
+    time;
     finished;
     id;
     description;
 
-    constructor(name, date, finished, id, description) {
+    constructor(name, date, finished, id, description, time) {
         this.name = name;
         this.date = date;
+        this.time = time;
         this.finished = finished;
         this.id = id;
         this.description = description;
@@ -30,6 +32,10 @@ class Activity {
         this.description = newDescription;
     }
 
+    set Time(newTime) {
+        this.time = newTime;
+    }
+
     get Name(){
         return this.name;
     }
@@ -40,6 +46,10 @@ class Activity {
 
     get Description(){
         return this.description;
+    }
+
+    get Time() {
+        return this.time;
     }
 
     get Data(){

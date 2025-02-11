@@ -220,14 +220,17 @@ label:hover{
     overflow: auto;
 }
 
-.secundary-nav__lists-part::-webkit-scrollbar{
+.secundary-nav__lists-part::-webkit-scrollbar,
+.dialog-settings__general-options::-webkit-scrollbar{
     display: block;
 }
-.secundary-nav__lists-part::-webkit-scrollbar-track{
+.secundary-nav__lists-part::-webkit-scrollbar-track,
+.dialog-settings__general-options::-webkit-scrollbar-track{
     background-color: var(--background-dark-color);
     border-radius: var(--border-raidus-slow);
 }
-.secundary-nav__lists-part::-webkit-scrollbar-thumb{
+.secundary-nav__lists-part::-webkit-scrollbar-thumb,
+.dialog-settings__general-options::-webkit-scrollbar-thumb{
     background-color: var(--border-color-dark);
     border-radius: var(--border-raidus-slow);
 }
@@ -523,8 +526,13 @@ dialog[open]{
 
 .dialog-settings__options div{
     display: block;
+    max-height: 50vh;
+    padding: var(--default-padding-2);
 }
 
+.dialog-settings__general-options{
+    overflow: auto;
+}
 /* -> mensaje de elegir lista <- */
 
 /* !  message that say to the user "choose one list" */
@@ -603,6 +611,7 @@ modify-act-space,
     label{
         margin-left: 20px;
         text-transform: uppercase;
+        font-size: 1.1rem;
     }
 }
 

@@ -4,7 +4,7 @@ function ReLoadActs(){
     finishedSpace.innerHTML = "";
     currentSpace.innerHTML = "";
     if (allActs.length > 1){ //? are activities inside  ? 
-        let f = allActs.map((e) => new Activity(e.name, e.date, e.finished,e.id,e.description)) //* <-- Assign the class for each activity.
+        let f = allActs.map((e) => new Activity(e.name, e.date, e.finished,e.id,e.description, e.time)) //* <-- Assign the class for each activity.
         let g = allActs.slice(0, 1)
         
         allActs.splice(0, allActs.length)
@@ -81,6 +81,7 @@ function AssignEventOfCompleteAct(checkbox) {
                 nameSpace.value = actSelectedMD.Name;
                 dateSpace.value = actSelectedMD.Date;
                 detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
+                timeSpace.value = actSelectedMD.Time;
             })
         });
     })
@@ -167,6 +168,7 @@ function refreshDeleteEvents() {
             nameSpace.value = actSelectedMD.Name;
             dateSpace.value = actSelectedMD.Date;
             detailsSpace.value = actSelectedMD.Description?actSelectedMD.Description:"";
+            timeSpace.value = actSelectedMD.Time;
         })
     });
 };

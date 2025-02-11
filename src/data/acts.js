@@ -19,6 +19,7 @@ const closeBtn = document.querySelector(".arrow-back-btn");
 const aside = document.querySelector(".modify-act-space");
 const nameSpace = document.getElementById("modify-act-name");
 const dateSpace = document.getElementById("modify-act-date");
+const timeSpace = document.getElementById("modify-act-time");
 const detailsSpace = document.getElementById("modify-act-details");
 const newDataSubmit = document.getElementById("modify-act-submit");
 let actSelectedMD;
@@ -69,11 +70,13 @@ newDataSubmit.addEventListener("click", ()=>{
     actSelectedMD.Name = nameSpace.value;
     actSelectedMD.Date = dateSpace.value;
     actSelectedMD.Description = detailsSpace.value;
+    actSelectedMD.Time = timeSpace.value;
 
     nameSpace.vale = "";
     detailsSpace.textContent = "";
     dateSpace.value = "";
     aside.style.display = "none";
+    timeSpace.value = "";
 
     allLists[(allActs[0])]["acts"] = allActs;
     localStorage.setItem('lists', (JSON.stringify(allLists)));
